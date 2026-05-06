@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   title: "MaxSportif - Meilleurs Sites de Paris Sportifs en France 2026",
   description: "Découvrez les meilleurs sites de paris sportifs en France sur MaxSportif.com. Plateformes agréées ANJ avec bonus exclusifs, retraits rapides et offres premium.",
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/icon",
+    shortcut: "/icon",
+    apple: "/icon",
   },
 };
 
