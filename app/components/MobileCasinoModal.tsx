@@ -44,8 +44,9 @@ export default function MobileCasinoModal({ mobileCasinos, isOnline, gclidValue 
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 py-5 sm:py-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-5 max-w-5xl mx-auto">
             {updatedCasinos.map((casino, index) => (
+              <div key={casino.id} className="w-full sm:w-[360px]">
               <CasinoCard
                 isOnline={isOnline}
                 key={casino.id}
@@ -53,6 +54,7 @@ export default function MobileCasinoModal({ mobileCasinos, isOnline, gclidValue 
                 rank={index + 1}
                 badge={index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : index === 3 ? 'fourth' : undefined}
               />
+              </div>
             ))}
           </div>
 

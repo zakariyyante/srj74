@@ -28,7 +28,7 @@ export default async function Home({ searchParams }: PageProps) {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative container mx-auto px-4 pt-10 pb-6 sm:pt-16 sm:pb-8 text-center overflow-hidden">
+      <section className="relative container mx-auto px-4 pt-10 pb-10 sm:pt-16 sm:pb-14 lg:pb-16 text-center overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-20 left-1/4 w-80 h-80 rounded-full opacity-15" style={{ background: 'radial-gradient(circle, #d61f69 0%, transparent 70%)' }} />
           <div className="absolute -top-20 right-1/4 w-80 h-80 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #6366f1 0%, transparent 70%)' }} />
@@ -51,8 +51,8 @@ export default async function Home({ searchParams }: PageProps) {
       </section>
 
       {/* Casino Cards Section */}
-      <section id="casinos" className="container mx-auto px-4 pb-16">
-        <div className="mb-5 sm:mb-8 text-center">
+      <section id="casinos" className="container mx-auto px-4 pt-10 pb-16 border-t" style={{ borderColor: 'rgba(214, 31, 105, 0.12)' }}>
+        <div className="mb-8 sm:mb-10 text-center">
           <h3 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-white mb-2 sm:mb-3 tracking-wide uppercase">
             Meilleures Plateformes
           </h3>
@@ -61,14 +61,15 @@ export default async function Home({ searchParams }: PageProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 lg:gap-8 max-w-7xl mx-auto">
           {regularCasinos.map((casino, index) => (
-            <CasinoCard
-              key={casino.id}
-              casino={casino}
-              rank={index + 1}
-              badge={index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : undefined}
-            />
+            <div key={casino.id} className="w-full md:w-[360px]">
+              <CasinoCard
+                casino={casino}
+                rank={index + 1}
+                badge={index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : undefined}
+              />
+            </div>
           ))}
         </div>
 
