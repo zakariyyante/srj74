@@ -3,8 +3,8 @@ import Logo from '../components/Logo';
 import Link from 'next/link';
 
 export const metadata = {
-  title: "Terms of Service - UK Betting Masters",
-  description: "Terms of Service for UK Betting Masters. Read our terms and conditions for using our sports betting comparison website.",
+  title: "Terms of Service - MaxSportif",
+  description: "Terms of Service for MaxSportif. Read our terms and conditions for using our sports betting comparison website.",
 };
 
 export default function TermsOfService() {
@@ -26,7 +26,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">1. Acceptance of Terms</h2>
               <p>
-                By accessing and using uk10topslot.com (the &ldquo;Website&rdquo; or &ldquo;Service&rdquo;), you accept and agree
+                By accessing and using maxsportif.com (the &ldquo;Website&rdquo; or &ldquo;Service&rdquo;), you accept and agree
                 to be bound by the terms and provision of this agreement. If you do not agree to abide by the
                 above, please do not use this Service.
               </p>
@@ -35,7 +35,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">2. Description of Service</h2>
               <p>
-                Casino Top Choices is an information and comparison website that provides reviews, ratings, and 
+                MaxSportif is an information and comparison website that provides reviews, ratings, and 
                 information about online casino operators. We are an independent comparison service and do not 
                 operate any gambling services ourselves.
               </p>
@@ -58,7 +58,7 @@ export default function TermsOfService() {
                 this agreement.
               </p>
               <p className="mt-3">
-                Online gambling is illegal for individuals under the age of 18 in the United Kingdom. We do 
+                Online gambling is illegal for individuals under the age of 18 en France. We do 
                 not knowingly provide information to minors.
               </p>
             </section>
@@ -116,7 +116,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">7. Limitation of Liability</h2>
               <p>
-                To the maximum extent permitted by applicable law, Casino Top Choices and its owners, employees, 
+                To the maximum extent permitted by applicable law, MaxSportif and its owners, employees, 
                 and affiliates shall not be liable for any indirect, incidental, special, consequential, or 
                 punitive damages, including without limitation, loss of profits, data, use, goodwill, or other 
                 intangible losses, resulting from:
@@ -163,7 +163,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">9. Intellectual Property</h2>
               <p>
-                The Service and its original content, features, and functionality are owned by Casino Top Choices 
+                The Service and its original content, features, and functionality are owned by MaxSportif 
                 and are protected by international copyright, trademark, patent, trade secret, and other 
                 intellectual property laws.
               </p>
@@ -177,7 +177,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">10. Affiliate Disclosure</h2>
               <p>
-                Casino Top Choices may receive compensation from casino operators when users click on links or 
+                MaxSportif may receive compensation from casino operators when users click on links or 
                 sign up through our Service. This compensation helps us maintain and improve our Service.
               </p>
               <p className="mt-3">
@@ -203,12 +203,12 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">12. Governing Law</h2>
               <p>
-                These Terms shall be governed by and construed in accordance with the laws of England and Wales, 
+                These Terms shall be governed by and construed in accordance with the lois de la République française, 
                 without regard to its conflict of law provisions.
               </p>
               <p className="mt-3">
                 Any disputes arising out of or relating to these Terms or the Service shall be subject to the 
-                exclusive jurisdiction of the courts of England and Wales.
+                exclusive juridiction exclusive des tribunaux compétents de France.
               </p>
             </section>
 
@@ -218,8 +218,8 @@ export default function TermsOfService() {
                 If you have any questions about these Terms of Service, please contact us:
               </p>
               <div className="mt-3 bg-white/5 rounded-2xl p-4 border border-white/10">
-                <p className="font-semibold text-white">Casino Top Choices</p>
-                <p>Website: <a href="https://www.uk10topslot.com" className="text-emerald-400 hover:text-emerald-300 underline">uk10topslot.com</a></p>
+                <p className="font-semibold text-white">MaxSportif</p>
+                <p>Website: <a href="https://www.maxsportif.com" className="text-emerald-400 hover:text-emerald-300 underline">maxsportif.com</a></p>
                 <p>Email: Please use our contact form on the website</p>
               </div>
             </section>
@@ -243,7 +243,7 @@ export default function TermsOfService() {
           </div>
           <div className="border-t border-white/10 pt-4 sm:pt-6 text-center">
             <p className="text-gray-500 text-xs sm:text-sm">
-              © 2026 uk10topslot.com. For educational purposes only. 18+ only. Please gamble responsibly.
+              © 2026 maxsportif.com. À titre informatif uniquement. 18+ uniquement. Jouez responsablement.
             </p>
             <div className="mt-4 flex justify-center gap-4 text-xs sm:text-sm">
               <Link href="/" className="text-emerald-400 hover:text-emerald-300">Home</Link>

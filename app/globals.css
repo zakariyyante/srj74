@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #04080f;
-  --foreground: #f1f5f9;
-  --emerald: #10b981;
-  --emerald-dark: #059669;
-  --amber: #f59e0b;
-  --amber-light: #fcd34d;
-  --violet: #8b5cf6;
-  --card-bg: #0b1520;
-  --card-border: rgba(16, 185, 129, 0.22);
+  --background: #0d0820;
+  --foreground: #ffffff;
+  --pink: #d61f69;
+  --pink-light: #ec4899;
+  --blue-card: #1e40af;
+  --orange: #f97316;
+  --gold: #f59e0b;
+  --card-bg: #1e40af;
+  --card-border: rgba(214, 31, 105, 0.25);
 }
 
 @theme inline {
@@ -28,7 +28,6 @@ body {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* ── Animations ───────────────────────────────────────── */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -40,25 +39,19 @@ body {
 }
 
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.10); }
-  50% { box-shadow: 0 0 44px rgba(16, 185, 129, 0.28); }
+  0%, 100% { box-shadow: 0 0 20px rgba(214, 31, 105, 0.15); }
+  50% { box-shadow: 0 0 42px rgba(214, 31, 105, 0.35); }
 }
 
-@keyframes pulse-amber {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
 }
 
-@keyframes scan-line {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
-/* ── Utility classes ──────────────────────────────────── */
 .gold-shimmer {
-  background: linear-gradient(110deg, transparent 33%, rgba(245, 158, 11, 0.07) 50%, transparent 67%);
+  background: linear-gradient(110deg, transparent 33%, rgba(255, 255, 255, 0.06) 50%, transparent 67%);
   background-size: 200% 100%;
-  animation: shimmer 3.5s linear infinite;
+  animation: shimmer 3s linear infinite;
 }
 
 .casino-glow {
@@ -70,52 +63,23 @@ body {
 }
 
 .gold-text {
-  background: linear-gradient(135deg, #10b981, #f59e0b, #fcd34d, #10b981);
-  background-size: 200% auto;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24, #f59e0b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 4s linear infinite;
 }
 
 .gold-border {
-  border-image: linear-gradient(135deg, #059669, #f59e0b, #059669) 1;
+  border-image: linear-gradient(135deg, #d61f69, #ec4899, #d61f69) 1;
 }
 
 .casino-card-bg {
-  background: linear-gradient(160deg, #0b1520 0%, #101e2e 50%, #0b1520 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1e3a8a 100%);
 }
 
-/* ── Stadium background ───────────────────────────────── */
-.stadium-bg {
-  background-color: #04080f;
-  background-image:
-    /* Floodlight beams from top-left */
-    conic-gradient(from 120deg at 0% 0%, rgba(245,158,11,0.13) 0deg, transparent 30deg),
-    /* Floodlight beam from top-right */
-    conic-gradient(from 240deg at 100% 0%, rgba(245,158,11,0.13) 0deg, transparent 30deg),
-    /* Pitch glow — centre emerald */
-    radial-gradient(ellipse 80% 50% at 50% 38%, rgba(16,185,129,0.09) 0%, transparent 70%),
-    /* Deep violet depth at bottom */
-    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(16,40,30,0.9) 0%, transparent 60%),
-    /* Dot-grid texture */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='1' cy='1' r='0.8' fill='rgba(16,185,129,0.07)'/%3E%3C/svg%3E");
-}
-
-/* Pitch stripe overlay on hero */
-.pitch-stripes {
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 60px,
-    rgba(16, 185, 129, 0.025) 60px,
-    rgba(16, 185, 129, 0.025) 120px
-  );
-}
-
-/* Felt texture — keep for backwards compat */
 .felt-texture {
+  background: linear-gradient(160deg, #0d0820 0%, #1a0a35 40%, #0d0820 100%);
   background-image:
-    radial-gradient(ellipse at 20% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 30%, rgba(214, 31, 105, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
 }

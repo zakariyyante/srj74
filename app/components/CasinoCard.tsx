@@ -12,23 +12,23 @@ interface CasinoCardProps {
   isOnline?: boolean;
 }
 
-const RANK_META: Record<number, { accent: string; glow: string; crown: string; label: string }> = {
-  1: { accent: 'from-amber-500 via-yellow-400 to-amber-500', glow: 'rgba(245,158,11,0.35)', crown: '👑', label: '#1 Pick' },
-  2: { accent: 'from-slate-400 via-slate-200 to-slate-400',  glow: 'rgba(148,163,184,0.25)', crown: '⭐', label: '#2 Pick' },
-  3: { accent: 'from-orange-600 via-orange-400 to-orange-600', glow: 'rgba(234,88,12,0.25)', crown: '🥉', label: '#3 Pick' },
-};
+export default function CasinoCard({ casino, rank, badge, isOnline = false }: CasinoCardProps) {
+  const handleCasinoClick = () => {
+    if (casino.isMobile) {
+      track('Casino Click', { casino: casino.name });
+    }
+  };
 
-const SPORT_MARKETS = ['⚽ Football', '🎾 Tennis', '🏀 Basketball', '🏈 NFL', '🎰 Casino'];
-
-export default function CasinoCard({ casino, rank }: CasinoCardProps) {
-  const meta = rank && rank <= 3 ? RANK_META[rank] : null;
-
-  const handleClick = () => {
-    if (casino.isMobile) track('Casino Click', { casino: casino.name });
+  const handleCardClick = () => {
+    handleCasinoClick();
     window.open(casino.url, '_blank', 'noopener,noreferrer');
   };
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick(); }
+
+  const handleCardKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleCardClick();
+    }
   };
 
   const renderLogo = () => {
@@ -36,9 +36,9 @@ export default function CasinoCard({ casino, rank }: CasinoCardProps) {
       return (
         <Image
           src={casino.logo}
-          alt={casino.name}
-          width={220}
-          height={80}
+          alt={`${casino.name} logo`}
+          width={200}
+          height={120}
           className="h-full w-full object-contain"
         />
       );
@@ -46,128 +46,78 @@ export default function CasinoCard({ casino, rank }: CasinoCardProps) {
     return logos[casino.logo as keyof typeof logos];
   };
 
+  const badgeLabel =
+    badge === 'gold' ? 'Meilleur Choix' :
+    badge === 'silver' ? 'Le Plus Populaire' :
+    badge === 'bronze' ? 'Offre Exclusive' :
+    badge === 'fourth' ? 'Tendance' : null;
+
   return (
     <article
-      className="group relative overflow-hidden rounded-3xl cursor-pointer transition-all duration-400"
-      style={{
-        background: 'linear-gradient(160deg, #0f1e17 0%, #0b1520 40%, #0f1a0e 100%)',
-        boxShadow: meta ? `0 0 40px ${meta.glow}, 0 8px 32px rgba(0,0,0,0.6)` : '0 8px 32px rgba(0,0,0,0.5)',
-        border: '1px solid rgba(16,185,129,0.18)',
-      }}
+      className="group relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 cursor-pointer hover:scale-[1.02] casino-glow gold-shimmer"
+      style={{ background: 'linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 60%, #1e3a8a 100%)' }}
       role="link"
       tabIndex={0}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
+      onClick={handleCardClick}
+      onKeyDown={handleCardKeyDown}
     >
-      {/* Animated top border gradient */}
-      {meta && (
-        <div
-          className={`absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r ${meta.accent}`}
-          style={{ backgroundSize: '200% auto', animation: 'shimmer 3s linear infinite' }}
-        />
-      )}
-      {!meta && (
-        <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
-      )}
-
-      {/* Rank badge — top-left */}
-      {rank && meta && (
-        <div className="absolute top-4 left-4 flex items-center gap-1.5">
-          <span className="text-lg leading-none">{meta.crown}</span>
-          <span className={`text-[11px] font-black uppercase tracking-wider bg-gradient-to-r ${meta.accent} bg-clip-text text-transparent`}>
-            {meta.label}
-          </span>
-        </div>
-      )}
-      {rank && !meta && (
-        <div className="absolute top-4 left-4 w-6 h-6 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-          <span className="text-[10px] font-black text-emerald-400">#{rank}</span>
-        </div>
-      )}
-
-      {/* Rating — top-right */}
-      <div className="absolute top-3.5 right-4 flex flex-col items-end">
-        <div
-          className="text-2xl font-black leading-none"
-          style={{
-            background: 'linear-gradient(135deg, #10b981, #f59e0b)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
-        >
-          {casino.rating.toFixed(1)}
-        </div>
-        <div className="text-amber-400/80 text-xs mt-0.5">★★★★★</div>
-      </div>
-
-      {/* Logo area */}
-      <div className="pt-12 px-5 pb-4">
-        <div className="h-16 flex items-center justify-start [&>svg]:fill-white [&>svg]:text-white [&>svg]:w-auto [&>svg]:h-full">
-          {renderLogo()}
-        </div>
-      </div>
-
-      {/* Divider with glow */}
-      <div className="mx-5 h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
-
-      {/* Bonus strip */}
-      <div className="mx-5 mt-4 mb-3 rounded-2xl overflow-hidden relative">
-        {/* Background pattern */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'repeating-linear-gradient(45deg, rgba(16,185,129,0.04) 0px, rgba(16,185,129,0.04) 1px, transparent 1px, transparent 8px)',
-          }}
-        />
-        <div className="relative px-4 py-3 rounded-2xl"
-          style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(245,158,11,0.07))' }}>
-          <p className="text-[10px] font-bold text-emerald-400/70 uppercase tracking-[0.2em] mb-1">Welcome Offer</p>
-          <p className="text-sm sm:text-base font-extrabold text-white leading-snug">{casino.bonus}</p>
-        </div>
-      </div>
-
-      {/* Sport market pills */}
-      <div className="px-5 mb-4 flex flex-wrap gap-1.5">
-        {SPORT_MARKETS.slice(0, 4).map(tag => (
+      {/* Pink badge */}
+      {badge && badgeLabel && (
+        <div className="flex justify-center pt-3 pb-0">
           <span
-            key={tag}
-            className="text-[10px] font-semibold text-slate-400/60 rounded-full px-2.5 py-1"
-            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(16,185,129,0.1)' }}
+            className="px-5 py-1.5 rounded-full text-sm font-bold italic text-white shadow-lg"
+            style={{ background: 'linear-gradient(90deg, #be185d, #ec4899)' }}
           >
-            {tag}
+            {badgeLabel}
           </span>
-        ))}
-      </div>
+        </div>
+      )}
 
-      {/* CTA button */}
-      <div className="px-5 pb-4">
+      <div className="px-4 pt-3 pb-4">
+        {/* Logo + Bonus info row */}
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-36 h-20 flex items-center justify-center flex-shrink-0 [&>svg]:w-full [&>svg]:h-full [&>svg]:text-white bg-white/10 rounded-xl p-2">
+            {renderLogo()}
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-blue-200/80 text-xs font-semibold mb-1 uppercase tracking-wide">
+              Offre de bienvenue
+            </p>
+            <p className="text-white text-base sm:text-lg font-extrabold leading-tight">
+              {casino.bonus}
+            </p>
+          </div>
+        </div>
+
+        {/* Rating row */}
+        <div className="flex items-center gap-2.5 mb-4">
+          <span className="text-white text-3xl font-black">{casino.rating.toFixed(1)}</span>
+          <div className="flex gap-0.5">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <svg key={i} className="w-5 h-5" viewBox="0 0 20 20" fill="#f59e0b">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Button */}
         <a
           href={casino.url}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={e => { e.stopPropagation(); if (casino.isMobile) track('Casino Click', { casino: casino.name }); }}
-          className="relative block w-full overflow-hidden rounded-2xl text-center font-black text-sm uppercase tracking-widest py-3.5 transition-all duration-300 group-hover:scale-[1.02]"
-          style={{
-            background: meta
-              ? `linear-gradient(90deg, #059669, #f59e0b, #059669)`
-              : 'linear-gradient(90deg, #065f46, #10b981, #065f46)',
-            backgroundSize: '200% auto',
-            animation: 'shimmer 4s linear infinite',
-            color: '#fff',
-            boxShadow: meta ? `0 4px 20px ${meta.glow}` : '0 4px 16px rgba(16,185,129,0.2)',
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCasinoClick();
           }}
+          className="block w-full text-white font-extrabold py-3.5 px-4 rounded-xl text-sm sm:text-base uppercase tracking-wider text-center shadow-lg transition-all duration-300 hover:brightness-110 hover:shadow-orange-500/30"
+          style={{ background: 'linear-gradient(90deg, #ea580c, #f97316, #f59e0b)' }}
         >
-          {/* Shine sweep */}
-          <span
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%)' }}
-          />
-          <span className="relative">Bet Now →</span>
+          ACCÉDER À LA PLATEFORME
         </a>
-        <p className="mt-2 text-center text-[10px] text-slate-500/50 tracking-wide">
-          18+ only · New customers · T&amp;Cs apply · Please gamble responsibly
-        </p>
+        <div className="mt-2 text-center text-[11px] text-blue-200/40">
+          CGU applicables. 18+
+        </div>
       </div>
     </article>
   );

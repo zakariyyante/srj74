@@ -3,8 +3,8 @@ import Logo from '../components/Logo';
 import Link from 'next/link';
 
 export const metadata = {
-  title: "Privacy Policy - UK Betting Masters",
-  description: "Privacy Policy for UK Betting Masters. Learn how we collect, use, and protect your personal information.",
+  title: "Privacy Policy - MaxSportif",
+  description: "Privacy Policy for MaxSportif. Learn how we collect, use, and protect your personal information.",
 };
 
 export default function PrivacyPolicy() {
@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">1. Introduction</h2>
               <p>
-                Welcome to Casino Top Choices (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;). We operate the website uk10topslot.com
+                Welcome to MaxSportif (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;). We operate the website maxsportif.com
                 (the &ldquo;Service&rdquo;). This Privacy Policy explains how we collect, use, disclose, and safeguard
                 your information when you visit our website.
               </p>
@@ -189,8 +189,8 @@ export default function PrivacyPolicy() {
                 contact us:
               </p>
               <div className="mt-3 bg-white/5 rounded-2xl p-4 border border-white/10">
-                <p className="font-semibold text-white">Casino Top Choices</p>
-                <p>Website: <a href="https://www.uk10topslot.com" className="text-emerald-400 hover:text-emerald-300 underline">uk10topslot.com</a></p>
+                <p className="font-semibold text-white">MaxSportif</p>
+                <p>Website: <a href="https://www.maxsportif.com" className="text-emerald-400 hover:text-emerald-300 underline">maxsportif.com</a></p>
                 <p>Email: Please use our contact form on the website</p>
               </div>
             </section>
@@ -205,7 +205,7 @@ export default function PrivacyPolicy() {
           </div>
           <div className="border-t border-white/10 pt-4 sm:pt-6 text-center">
             <p className="text-gray-500 text-xs sm:text-sm">
-              © 2026 uk10topslot.com. For educational purposes only. 18+ only. Please gamble responsibly.
+              © 2026 maxsportif.com. À titre informatif uniquement. 18+ uniquement. Jouez responsablement.
             </p>
             <div className="mt-4 flex justify-center gap-4 text-xs sm:text-sm">
               <Link href="/" className="text-emerald-400 hover:text-emerald-300">Home</Link>
