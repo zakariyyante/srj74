@@ -52,15 +52,6 @@ export default async function Home({ searchParams }: PageProps) {
 
       {/* Casino Cards Section */}
       <section id="casinos" className="container mx-auto px-4 pt-10 pb-16 border-t" style={{ borderColor: 'rgba(214, 31, 105, 0.12)' }}>
-        <div className="mb-8 sm:mb-10 text-center">
-          <h3 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-white mb-2 sm:mb-3 tracking-wide uppercase">
-            Meilleures Plateformes
-          </h3>
-          <p className="text-sm sm:text-base text-white/40">
-            Mis à jour chaque semaine — classées par performance, offres et avis utilisateurs.
-          </p>
-        </div>
-
         <div className="flex flex-wrap justify-center gap-6 lg:gap-8 max-w-7xl mx-auto">
           {regularCasinos.map((casino, index) => (
             <div key={casino.id} className="w-full md:w-[360px]">
