@@ -551,28 +551,16 @@ const casinosRawData: CasinoRawData[] = [
     name: "Bwin",
     logo: "/bwin_dark.png",
     bonus: "Votre mise remboursée jusqu'à 100€",
-    url: "https://mediaserver.entainpartners.com/renderBanner.do?zoneId=2159573&btag=Bwin-SRJ74&tpdeh=",
+    url: "https://mediaserver.entainpartners.com/renderBanner.do?zoneId=2159573",
     votes: 1438,
   },
-  // {
-  //   name: "Spinland",
-  //   logo: "/spinland.png",
-  //   bonus: "100% WELCOME BONUS UP TO £300 + 50 BONUS SPINS ON FIRST DEPOSIT",
-  //   url: "https://media1.casimbaaff.com/redirect.aspx?pid=48778&lpid=213&bid=1617&subid=Spinland-ST&clickid=",
-  //   votes: 1126,
-  // },
-  // {
-  //   name: "Coral Casino",
-  //   logo: "coral",
-  //   bonus: "Play £10 Get 200 Free Spins",
-  //   url: "https://www.coral.co.uk"
-  // },
-  // {
-  //   name: "LottoGo Casino",
-  //   logo: "lottogo",
-  //   bonus: "100% Bonus Up to £200 + 300 Bonus Spins",
-  //   url: "https://www.lottogo.com"
-  // },
+  {
+    name: "NetBet",
+    logo: "/netbet.png",
+    bonus: "100 % jusqu'à 300 € + 50 € de paris gratuits offerts",
+    url: "https://netbet.fr/",
+    votes: 1126,
+  },
   // {
   //   name: "MrQ Casino",
   //   logo: "mrq",
