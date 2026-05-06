@@ -548,10 +548,10 @@ const casinosRawData: CasinoRawData[] = [
   //   url: "https://www.karamba.co.uk/lp/wo-300-spins?asys=cexp&affid=40838&AffiliateID=cx-40838_717172&cxd=cx-40838_717172&afi=28080&ar=&gclid=&lpr=%5Bafp2%5D&mmi=%5Bafp5%5D&MSCLKID=%5BMSCLKID%5D&utm_content=40838"
   // },
   {
-    name: "Barz",
-    logo: "/barz.webp",
-    bonus: "100% WELCOME BONUS UP TO £300 + 50 BONUS SPINS",
-    url: "https://media1.casimbaaff.com/redirect.aspx?pid=48000&bid=1480",
+    name: "Bwin",
+    logo: "/bwin_dark.png",
+    bonus: "Votre mise remboursée jusqu'à 100€",
+    url: "https://mediaserver.entainpartners.com/renderBanner.do?zoneId=2159573&btag=Bwin-SRJ74&tpdeh=",
     votes: 1438,
   },
   // {
